@@ -110,4 +110,4 @@ Razorpay — Payment Gateway
 JECRC University — Academic Support
 
 
-Made with ❤️ by [Your Name] — JECRC University, Jaipur
+Made with ❤️ by [vishal jha] — JECRC University, Jaipur
