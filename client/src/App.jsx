@@ -11,7 +11,7 @@ import InterviewHistory from "./pages/InterviewHistory.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import AtsChecker from "./pages/AtsChecker.jsx";
 
-export const ServerUrl = "http://localhost:8000"
+export const ServerUrl = "https://talentscope-p22e.onrender.com"
 
 function App() {
   const dispatch = useDispatch()
