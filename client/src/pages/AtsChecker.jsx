@@ -57,19 +57,19 @@ function AtsChecker() {
     }
 
     return (
-        <div className='min-h-screen bg-gradient-to-br from-gray-50 to-emerald-50 py-10 px-6'>
+        <div className='min-h-screen bg-transparent py-10 px-6'>
             <div className='max-w-5xl mx-auto'>
 
                 {/* Header */}
                 <div className='flex items-center gap-4 mb-10'>
                     <button
                         onClick={() => navigate("/")}
-                        className='p-3 rounded-full bg-white shadow hover:shadow-md transition'>
-                        <FaArrowLeft className='text-gray-600' />
+                        className='p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:shadow-[0_0_15px_rgba(16,185,129,0.1)] transition'>
+                        <FaArrowLeft className='text-zinc-300' />
                     </button>
                     <div>
-                        <h1 className='text-3xl font-bold text-gray-800'>ATS Resume Checker</h1>
-                        <p className='text-gray-500 mt-1'>Check how well your resume matches the job description</p>
+                        <h1 className='text-3xl font-bold text-zinc-100'>ATS Resume Checker</h1>
+                        <p className='text-zinc-400 mt-1'>Check how well your resume matches the job description</p>
                     </div>
                 </div>
 
@@ -77,16 +77,16 @@ function AtsChecker() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className='bg-white rounded-3xl shadow-md border border-gray-100 p-8'>
+                        className='bg-zinc-900/80 rounded-3xl border border-zinc-800 p-8'>
 
                         {/* Resume Upload */}
                         <div className='mb-6'>
-                            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                            <label className='block text-sm font-semibold text-zinc-300 mb-2'>
                                 Upload Resume (PDF)
                             </label>
-                            <label className='w-full border-2 border-dashed border-gray-300 rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer hover:border-emerald-400 transition'>
-                                <FaUpload className='text-gray-400 mb-3' size={28} />
-                                <p className='text-gray-500 text-sm'>
+                            <label className='w-full border-2 border-dashed border-zinc-700 rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer hover:border-emerald-500/50 transition bg-zinc-950/50'>
+                                <FaUpload className='text-zinc-500 mb-3' size={28} />
+                                <p className='text-zinc-400 text-sm'>
                                     {resume ? resume.name : "Click to upload your resume PDF"}
                                 </p>
                                 <input
@@ -100,7 +100,7 @@ function AtsChecker() {
 
                         {/* Job Description */}
                         <div className='mb-6'>
-                            <label className='block text-sm font-semibold text-gray-700 mb-2'>
+                            <label className='block text-sm font-semibold text-zinc-300 mb-2'>
                                 Job Description
                             </label>
                             <textarea
@@ -108,7 +108,7 @@ function AtsChecker() {
                                 onChange={(e) => setJobDescription(e.target.value)}
                                 placeholder="Paste the job description here..."
                                 rows={8}
-                                className='w-full border border-gray-200 rounded-2xl p-4 text-sm text-gray-700 outline-none focus:ring-2 focus:ring-emerald-500 resize-none'
+                                className='w-full bg-zinc-950 border border-zinc-700 rounded-2xl p-4 text-sm text-zinc-300 outline-none focus:ring-2 focus:ring-emerald-500/50 resize-none'
                             />
                         </div>
 
@@ -120,7 +120,7 @@ function AtsChecker() {
                             onClick={handleAnalyze}
                             disabled={loading}
                             whileTap={{ scale: 0.97 }}
-                            className='w-full bg-black text-white py-4 rounded-2xl font-semibold hover:opacity-90 transition disabled:opacity-50'>
+                            className='w-full bg-emerald-600 text-white py-4 rounded-2xl font-semibold shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:bg-emerald-500 transition disabled:opacity-50'>
                             {loading ? "Analyzing your resume..." : "Analyze Resume"}
                         </motion.button>
                     </motion.div>
@@ -138,7 +138,7 @@ function AtsChecker() {
                                 { label: "Format", value: result.formatScore },
                                 { label: "Experience", value: result.experienceScore },
                             ].map((item, i) => (
-                                <div key={i} className='bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-col items-center'>
+                                <div key={i} className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-5 flex flex-col items-center'>
                                     <div className='w-20 h-20 mb-3'>
                                         <CircularProgressbar
                                             value={item.value}
@@ -147,11 +147,11 @@ function AtsChecker() {
                                                 textSize: '22px',
                                                 pathColor: getScoreColor(item.value),
                                                 textColor: getScoreColor(item.value),
-                                                trailColor: '#f3f4f6',
+                                                trailColor: '#27272a',
                                             })}
                                         />
                                     </div>
-                                    <p className='text-sm font-semibold text-gray-700'>{item.label}</p>
+                                    <p className='text-sm font-semibold text-zinc-100'>{item.label}</p>
                                     <p className='text-xs mt-1' style={{ color: getScoreColor(item.value) }}>
                                         {getScoreLabel(item.value)}
                                     </p>
@@ -160,33 +160,33 @@ function AtsChecker() {
                         </div>
 
                         {/* Summary */}
-                        <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
-                            <h3 className='font-semibold text-gray-800 mb-2'>Overall Summary</h3>
-                            <p className='text-gray-600 text-sm leading-relaxed'>{result.summary}</p>
+                        <div className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-6'>
+                            <h3 className='font-semibold text-zinc-100 mb-2'>Overall Summary</h3>
+                            <p className='text-zinc-400 text-sm leading-relaxed'>{result.summary}</p>
                         </div>
 
                         {/* Keywords */}
                         <div className='grid md:grid-cols-2 gap-4'>
-                            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
-                                <h3 className='font-semibold text-gray-800 mb-4'>
+                            <div className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-6'>
+                                <h3 className='font-semibold text-zinc-100 mb-4'>
                                     ✅ Matched Keywords
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>
                                     {result.matchedKeywords.map((kw, i) => (
-                                        <span key={i} className='bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-full font-medium'>
+                                        <span key={i} className='bg-emerald-900/30 text-emerald-400 border border-emerald-800/50 text-xs px-3 py-1 rounded-full font-medium'>
                                             {kw}
                                         </span>
                                     ))}
                                 </div>
                             </div>
 
-                            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
-                                <h3 className='font-semibold text-gray-800 mb-4'>
+                            <div className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-6'>
+                                <h3 className='font-semibold text-zinc-100 mb-4'>
                                     ❌ Missing Keywords
                                 </h3>
                                 <div className='flex flex-wrap gap-2'>
                                     {result.missingKeywords.map((kw, i) => (
-                                        <span key={i} className='bg-red-100 text-red-600 text-xs px-3 py-1 rounded-full font-medium'>
+                                        <span key={i} className='bg-red-900/30 text-red-400 border border-red-800/50 text-xs px-3 py-1 rounded-full font-medium'>
                                             {kw}
                                         </span>
                                     ))}
@@ -196,25 +196,25 @@ function AtsChecker() {
 
                         {/* Strengths & Improvements */}
                         <div className='grid md:grid-cols-2 gap-4'>
-                            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
-                                <h3 className='font-semibold text-gray-800 mb-4'>💪 Strengths</h3>
+                            <div className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-6'>
+                                <h3 className='font-semibold text-zinc-100 mb-4'>💪 Strengths</h3>
                                 <div className='space-y-3'>
                                     {result.strengths.map((s, i) => (
                                         <div key={i} className='flex items-start gap-3'>
                                             <FaCheckCircle className='text-emerald-500 mt-0.5 flex-shrink-0' />
-                                            <p className='text-sm text-gray-600'>{s}</p>
+                                            <p className='text-sm text-zinc-400'>{s}</p>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
-                            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
-                                <h3 className='font-semibold text-gray-800 mb-4'>🔧 Improvements</h3>
+                            <div className='bg-zinc-900/80 rounded-2xl border border-zinc-800 p-6'>
+                                <h3 className='font-semibold text-zinc-100 mb-4'>🔧 Improvements</h3>
                                 <div className='space-y-3'>
                                     {result.improvements.map((imp, i) => (
                                         <div key={i} className='flex items-start gap-3'>
                                             <FaTimesCircle className='text-red-400 mt-0.5 flex-shrink-0' />
-                                            <p className='text-sm text-gray-600'>{imp}</p>
+                                            <p className='text-sm text-zinc-400'>{imp}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -225,12 +225,12 @@ function AtsChecker() {
                         <div className='flex gap-4'>
                             <button
                                 onClick={() => setResult(null)}
-                                className='flex-1 border border-gray-300 py-3 rounded-2xl text-gray-700 font-semibold hover:bg-gray-50 transition'>
+                                className='flex-1 border border-zinc-700 bg-zinc-800 py-3 rounded-2xl text-zinc-300 font-semibold hover:bg-zinc-700 transition'>
                                 Check Another Resume
                             </button>
                             <button
                                 onClick={() => navigate("/")}
-                                className='flex-1 bg-black text-white py-3 rounded-2xl font-semibold hover:opacity-90 transition'>
+                                className='flex-1 bg-emerald-600 text-white py-3 rounded-2xl font-semibold shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:bg-emerald-500 transition'>
                                 Go Home
                             </button>
                         </div>

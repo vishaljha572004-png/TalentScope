@@ -12,7 +12,7 @@ function Step3Report({ report }) {
   if (!report) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-500 text-lg">Loading Report...</p>
+        <p className="text-zinc-400 text-lg">Loading Report...</p>
       </div>
     );
   }
@@ -172,25 +172,25 @@ function Step3Report({ report }) {
 };
 
   return (
-    <div className='min-h-screen bg-linear-to-br from-gray-50 to-green-50 px-4 sm:px-6 lg:px-10 py-8'>
+    <div className='min-h-screen bg-transparent px-4 sm:px-6 lg:px-10 py-8'>
       <div className='mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
         <div className='md:mb-10 w-full flex items-start gap-4 flex-wrap'>
           <button
             onClick={() => navigate("/history")}
-            className='mt-1 p-3 rounded-full bg-white shadow hover:shadow-md transition'><FaArrowLeft className='text-gray-600' /></button>
+            className='mt-1 p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:shadow-[0_0_15px_rgba(16,185,129,0.1)] transition'><FaArrowLeft className='text-zinc-300' /></button>
 
           <div>
-            <h1 className='text-3xl font-bold flex-nowrap text-gray-800'>
+            <h1 className='text-3xl font-bold flex-nowrap text-zinc-100'>
               Interview Analytics Dashboard
             </h1>
-            <p className='text-gray-500 mt-2'>
+            <p className='text-zinc-400 mt-2'>
               AI-powered performance insights
             </p>
 
           </div>
         </div>
 
-        <button onClick={downloadPDF} className='bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap'>Download PDF</button>
+        <button onClick={downloadPDF} className='bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap'>Download PDF</button>
       </div>
 
 
@@ -200,9 +200,9 @@ function Step3Report({ report }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8 text-center">
+            className="bg-zinc-900/80 border border-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center">
 
-            <h3 className="text-gray-500 mb-4 sm:mb-6 text-sm sm:text-base">
+            <h3 className="text-zinc-400 mb-4 sm:mb-6 text-sm sm:text-base">
               Overall Performance
             </h3>
             <div className='relative w-20 h-20 sm:w-25 sm:h-25 mx-auto'>
@@ -213,20 +213,20 @@ function Step3Report({ report }) {
                   textSize: "18px",
                   pathColor: "#10b981",
                   textColor: "#ef4444",
-                  trailColor: "#e5e7eb",
+                  trailColor: "#27272a",
                 })}
               />
             </div>
 
-            <p className="text-gray-400 mt-3 text-xs sm:text-sm">
+            <p className="text-zinc-500 mt-3 text-xs sm:text-sm">
               Out of 10
             </p>
 
             <div className="mt-4">
-              <p className="font-semibold text-gray-800 text-sm sm:text-base">
+              <p className="font-semibold text-zinc-100 text-sm sm:text-base">
                 {performanceText}
               </p>
-              <p className="text-gray-500 text-xs sm:text-sm mt-1">
+              <p className="text-zinc-400 text-xs sm:text-sm mt-1">
                 {shortTagline}
               </p>
             </div>
@@ -235,8 +235,8 @@ function Step3Report({ report }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className='bg-white rounded-2xl sm:rounded-3xl shadow-lg p-6 sm:p-8'>
-            <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-6">
+            className='bg-zinc-900/80 border border-zinc-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8'>
+            <h3 className="text-base sm:text-lg font-semibold text-zinc-100 mb-6">
               Skill Evaluation
             </h3>
 
@@ -246,12 +246,12 @@ function Step3Report({ report }) {
                   <div key={i}>
                     <div className='flex justify-between mb-2 text-sm sm:text-base'>
 
-                      <span>{s.label}</span>
-                      <span className='font-semibold text-green-600'>{s.value}</span>
+                      <span className='text-zinc-300'>{s.label}</span>
+                      <span className='font-semibold text-emerald-400'>{s.value}</span>
                     </div>
 
-                    <div className='bg-gray-200 h-2 sm:h-3 rounded-full'>
-                      <div className='bg-green-500 h-full rounded-full'
+                    <div className='bg-zinc-800 h-2 sm:h-3 rounded-full'>
+                      <div className='bg-emerald-500 h-full rounded-full'
                         style={{ width: `${s.value * 10}%` }}
 
                       ></div>
@@ -274,8 +274,8 @@ function Step3Report({ report }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className='bg-white rounded-2xl sm:rounded-3xl shadow-lg p-5 sm:p-8'>
-            <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">
+            className='bg-zinc-900/80 border border-zinc-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8'>
+            <h3 className="text-base sm:text-lg font-semibold text-zinc-100 mb-4 sm:mb-6">
               Performance Trend
             </h3>
 
@@ -283,14 +283,14 @@ function Step3Report({ report }) {
 
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={questionScoreData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis domain={[0, 10]} />
-                  <Tooltip />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#3f3f46" />
+                  <XAxis dataKey="name" stroke="#a1a1aa" />
+                  <YAxis domain={[0, 10]} stroke="#a1a1aa" />
+                  <Tooltip contentStyle={{ backgroundColor: '#18181b', borderColor: '#27272a', color: '#f4f4f5' }} />
                   <Area type="monotone"
                     dataKey="score"
-                    stroke="#22c55e"
-                    fill="#bbf7d0"
+                    stroke="#34d399"
+                    fill="rgba(16,185,129,0.2)"
                     strokeWidth={3} />
 
 
@@ -307,36 +307,36 @@ function Step3Report({ report }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className='bg-white rounded-2xl sm:rounded-3xl shadow-lg p-5 sm:p-8'>
-            <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-6">
+            className='bg-zinc-900/80 border border-zinc-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8'>
+            <h3 className="text-base sm:text-lg font-semibold text-zinc-100 mb-6">
               Question Breakdown
             </h3>
             <div className='space-y-6'>
               {questionWiseScore.map((q, i) => (
-                <div key={i} className='bg-gray-50 p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-200'>
+                <div key={i} className='bg-zinc-950 p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-zinc-700'>
 
                   <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4'>
                     <div>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-zinc-400">
                         Question {i + 1}
                       </p>
 
-                      <p className="font-semibold text-gray-800 text-sm sm:text-base leading-relaxed">
+                      <p className="font-semibold text-zinc-100 text-sm sm:text-base leading-relaxed">
                         {q.question || "Question not available"}
                       </p>
                     </div>
 
 
-                    <div className='bg-green-100 text-green-600 px-3 py-1 rounded-full font-bold text-xs sm:text-sm w-fit'>
+                    <div className='bg-emerald-900/30 text-emerald-400 border border-emerald-800/50 px-3 py-1 rounded-full font-bold text-xs sm:text-sm w-fit'>
                       {q.score ?? 0}/10
                     </div>
                   </div>
 
-                  <div className='bg-green-50 border border-green-200 p-4 rounded-lg'>
-                    <p className='text-xs text-green-600 font-semibold mb-1'>
+                  <div className='bg-zinc-900 border border-zinc-800 p-4 rounded-lg'>
+                    <p className='text-xs text-emerald-500 font-semibold mb-1'>
                       AI Feedback
                     </p>
-                    <p className='text-sm text-gray-700 leading-relaxed'>
+                    <p className='text-sm text-zinc-300 leading-relaxed'>
 
                       {q.feedback && q.feedback.trim() !== ""
                         ? q.feedback
